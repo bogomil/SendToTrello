@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+  "name": "Send To Trello",
+  "version": "1.1",
+  "description": "Sends the selected text from yourbrowser to a Trello board",
+
+  "permissions": [
+    "menus",
+    "contextMenus",
+    "storage",
+    "notifications"
+  ],
+  "background": {
+    "scripts": ["trello.js"]
+  },
+  "options_ui": {
+    "page": "options.html",
+    "browser_style": true
+  },
+  "applications": {
+    "gecko": {
+      "id": "send_to_trello_i@talkweb.eu",
+      "strict_min_version": "40.0"
+
+    }
+  }
+
+}
