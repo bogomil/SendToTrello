@@ -9,9 +9,10 @@ function onCreated() {
 //create the menu
 browser.contextMenus.create({
   id: "trello-selection",
-  title: "Send to Trello",
+  title: browser.i18n.getMessage("menuTitle"),
   contexts: ["selection"]
 }, onCreated);
+
 
 
 browser.contextMenus.onClicked.addListener(function (info, tab) {
@@ -24,6 +25,8 @@ browser.contextMenus.onClicked.addListener(function (info, tab) {
   switch (info.menuItemId) {
 
     case "trello-selection":
+      
+      
       if (info.selectionText != null && info.selectionText.length > 0) {
         let buffer = browser.storage.sync.get(null);
 
@@ -38,19 +41,27 @@ browser.contextMenus.onClicked.addListener(function (info, tab) {
             headers: {
               "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
             },
-            body: "name=test&desc=" + encodeURI(info.selectionText) + "&pos=bottom&idList=" + this.s_listid + "&keepFromSource=all&key=" + this.s_trello_key + "&token=" + this.s_trello_token + ""
+            body: "name=test&desc="+encodeURI(info.selectionText)+"&pos=bottom&idList="+this.s_listid+"&keepFromSource=all&key="+this.s_trello_key+"&token="+this.s_trello_token+""
           })
           .then(function (data) {
-            //add an icon
-            browser.notifications.create(trelloNotification, {
-              "type": "basic",
-              "title": "Success",
-              "message": "Your snippet were added to your Trello board"
-            });
+            if (data.ok) {
+              browser.notifications.create(trelloNotification, {
+                "type": "basic",
+                "iconUrl": browser.extension.getURL("icons/trellon.png"),
+                "title": browser.i18n.getMessage("notificationTitle"),
+                "message": browser.i18n.getMessage("notificationDesc")
+              });
+            } else {
+              browser.notifications.create(trelloNotification, {
+                "type": "basic",
+                "iconUrl": browser.extension.getURL("icons/trellono.png"),
+                "title": browser.i18n.getMessage("notificationTitleNo"),
+                "message": browser.i18n.getMessage("notificationDescNo")
+              });
+            }
+                   
           })
-          .catch(function (error) {
-            console.log('Request failed', error);
-          });
+          
       }
 
       break;

@@ -1,9 +1,9 @@
 {
   "manifest_version": 2,
-  "name": "Send To Trello",
-  "version": "1.1",
-  "description": "Sends the selected text from yourbrowser to a Trello board",
-
+  "version": "1.2",
+  "name": "__MSG_extensionName__",
+  "description": "__MSG_extensionDescription__",
+  "homepage_url": "https://github.com/bogomil/SendToTrello/tree/master/Firefox",
   "permissions": [
     "menus",
     "contextMenus",
@@ -23,6 +23,7 @@
       "strict_min_version": "40.0"
 
     }
-  }
+  },
+  "default_locale": "en"
 
 }

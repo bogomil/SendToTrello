@@ -1,0 +1,35 @@
+{
+    "extensionName": {
+        "message": "Send to Trello",
+        "description": "Name of the extension."
+    },
+
+    "extensionDescription": {
+        "message": "Sends the selected text from your Firefox browser to a Trello board.",
+        "description": "Description of the extension."
+    },
+
+    "notificationTitle": {
+        "message": "You did it!",
+        "description": "Title of the success notification."
+    },
+
+    "notificationDesc": {
+        "message": "Your snippet was added to your Trello board.  A Hint: Save more snippets like that and read them regurarly to be a successfull person or a robot.",
+        "description": "Content of the success notification."
+    },
+
+    "notificationTitleNo": {
+        "message": "Well, something went wrong",
+        "description": "Title of the failire notification."
+    },
+
+    "notificationDescNo": {
+        "message": "Something not-so-good happened.  A Hint: Go and check your settings page, but don't forget to smile.",
+        "description": "Content of the failire notification."
+    },
+    "menuTitle": {
+        "message": "Paste to my Trello",
+        "description": "Context menu title"
+    }
+}
